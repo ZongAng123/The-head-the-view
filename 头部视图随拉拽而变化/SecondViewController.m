@@ -1,37 +1,58 @@
 //
-//  ViewController.m
+//  SecondViewController.m
 //  头部视图随拉拽而变化
 //
 //  Created by 纵昂 on 17/1/5.
 //  Copyright © 2017年 纵昂. All rights reserved.
 //
+
+
+
 #define screenBounds [UIScreen mainScreen].bounds
 #define screenWidth CGRectGetWidth(screenBounds)
 #define screenHeight CGRectGetHeight(screenBounds)
 
-#import "ViewController.h"
-#import "ZAZoomHeaderView.h"
 #import "SecondViewController.h"
+#import "ZAZoomHeaderView.h"
+#import "UINavigationController+extention.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray *dataSource;
-@property (nonatomic, strong) ZAZoomHeaderView *headerView;
+@interface SecondViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, copy)NSArray * dataSource;
+@property (nonatomic, strong)ZAZoomHeaderView * headerView;
+@property (nonatomic, strong)UIView * navigationBarView;
 @end
+@implementation SecondViewController
 
-@implementation ViewController
-
-- (void)viewDidLoad {
+-(void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     _dataSource = @[@"北京",@"河北",@"天津",@"河南",@"广西",@"广东",@"湖南",@"湖北",@"山东",@"山西",@"陕西",@"新疆",@"西藏",@"青海",@"宁夏",@"福建",@"四川",@"成都",@"上海",@"浙江",@"江苏",@"江西",@"辽宁",@"黑龙江",@"吉林"];
     
     
     self.headerView = [[ZAZoomHeaderView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, 200)];
     self.headerView.imageView.image = [UIImage imageNamed:@"girl.jpg"];
     self.tableView.tableHeaderView = self.headerView;
-    [self.tableView reloadData];
+    
+    if (self.navigationController.childViewControllers.count == 1) {
+        UIBarButtonItem *dismissBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(onDismiss:)];
+        self.navigationItem.leftBarButtonItem = dismissBarButton;
+    }
+    
+    //修改navigationBar
+    [self.navigationController setTitleColor:[UIColor clearColor]];
+    [self.navigationController clearNavigationBar];
+    [self.navigationController setTintColor:[UIColor colorWithRed:0.001f green:0.102f blue:0.212f alpha:1.0f]];
+    [self.navigationController setBarTintColor:[UIColor colorWithRed:0.239 green:0.491 blue:0.937 alpha:1.0f]];
+    //以屏幕坐标原点为界面的坐标原点
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
 }
+-(void)onDismiss:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(UITableView*)tableView
 {
     if (!_tableView) {
@@ -42,11 +63,6 @@
         [self.view addSubview:_tableView];
     }
     return _tableView;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -70,16 +86,21 @@
     NSString *title = self.dataSource[indexPath.row];
     SecondViewController *secondViewController = [[SecondViewController alloc]init];
     secondViewController.title = title;
-    
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:secondViewController];
-    [self presentViewController:nav animated:YES completion:nil];
-    
+    [self.navigationController pushViewController:secondViewController animated:YES];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetY = scrollView.contentOffset.y;
     self.headerView.offsetY = offsetY;
+    
+    if (offsetY > 100) {
+        [self.navigationController setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController setTitleColor:[UIColor whiteColor]];
+    }else{
+        [self.navigationController setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController setTitleColor:[UIColor clearColor]];
+    }
     
 }
 

@@ -15,6 +15,10 @@
 		74E6AD951E1E5A66002900B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74E6AD931E1E5A66002900B5 /* LaunchScreen.storyboard */; };
 		74E6ADA01E1E5A66002900B5 /* __________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6AD9F1E1E5A66002900B5 /* __________Tests.m */; };
 		74E6ADAB1E1E5A66002900B5 /* __________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6ADAA1E1E5A66002900B5 /* __________UITests.m */; };
+		74E6ADBA1E1E5ACD002900B5 /* ZAZoomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6ADB91E1E5ACD002900B5 /* ZAZoomHeaderView.m */; };
+		74E6ADBD1E1E5AF6002900B5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6ADBC1E1E5AF6002900B5 /* SecondViewController.m */; };
+		74E6ADC01E1E5B3C002900B5 /* UINavigationController+extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6ADBF1E1E5B3C002900B5 /* UINavigationController+extention.m */; };
+		74E6ADC21E1E6544002900B5 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74E6ADC11E1E6544002900B5 /* girl.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,13 @@
 		74E6ADA61E1E5A66002900B5 /* 头部视图随拉拽而变化UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "头部视图随拉拽而变化UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E6ADAA1E1E5A66002900B5 /* __________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "__________UITests.m"; sourceTree = "<group>"; };
 		74E6ADAC1E1E5A66002900B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74E6ADB81E1E5ACD002900B5 /* ZAZoomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAZoomHeaderView.h; sourceTree = "<group>"; };
+		74E6ADB91E1E5ACD002900B5 /* ZAZoomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZAZoomHeaderView.m; sourceTree = "<group>"; };
+		74E6ADBB1E1E5AF6002900B5 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		74E6ADBC1E1E5AF6002900B5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		74E6ADBE1E1E5B3C002900B5 /* UINavigationController+extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+extention.h"; sourceTree = "<group>"; };
+		74E6ADBF1E1E5B3C002900B5 /* UINavigationController+extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+extention.m"; sourceTree = "<group>"; };
+		74E6ADC11E1E6544002900B5 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +112,17 @@
 		74E6AD841E1E5A66002900B5 /* 头部视图随拉拽而变化 */ = {
 			isa = PBXGroup;
 			children = (
+				74E6ADC11E1E6544002900B5 /* girl.jpg */,
 				74E6AD881E1E5A66002900B5 /* AppDelegate.h */,
 				74E6AD891E1E5A66002900B5 /* AppDelegate.m */,
 				74E6AD8B1E1E5A66002900B5 /* ViewController.h */,
 				74E6AD8C1E1E5A66002900B5 /* ViewController.m */,
+				74E6ADB81E1E5ACD002900B5 /* ZAZoomHeaderView.h */,
+				74E6ADB91E1E5ACD002900B5 /* ZAZoomHeaderView.m */,
+				74E6ADBB1E1E5AF6002900B5 /* SecondViewController.h */,
+				74E6ADBC1E1E5AF6002900B5 /* SecondViewController.m */,
+				74E6ADBE1E1E5B3C002900B5 /* UINavigationController+extention.h */,
+				74E6ADBF1E1E5B3C002900B5 /* UINavigationController+extention.m */,
 				74E6AD8E1E1E5A66002900B5 /* Main.storyboard */,
 				74E6AD911E1E5A66002900B5 /* Assets.xcassets */,
 				74E6AD931E1E5A66002900B5 /* LaunchScreen.storyboard */,
@@ -244,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E6AD951E1E5A66002900B5 /* LaunchScreen.storyboard in Resources */,
+				74E6ADC21E1E6544002900B5 /* girl.jpg in Resources */,
 				74E6AD921E1E5A66002900B5 /* Assets.xcassets in Resources */,
 				74E6AD901E1E5A66002900B5 /* Main.storyboard in Resources */,
 			);
@@ -270,7 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E6ADC01E1E5B3C002900B5 /* UINavigationController+extention.m in Sources */,
+				74E6ADBD1E1E5AF6002900B5 /* SecondViewController.m in Sources */,
 				74E6AD8D1E1E5A66002900B5 /* ViewController.m in Sources */,
+				74E6ADBA1E1E5ACD002900B5 /* ZAZoomHeaderView.m in Sources */,
 				74E6AD8A1E1E5A66002900B5 /* AppDelegate.m in Sources */,
 				74E6AD871E1E5A66002900B5 /* main.m in Sources */,
 			);
